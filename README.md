@@ -42,18 +42,42 @@ Once installed, invoke the skill by:
 - Requesting a "sprout report" from your recent notes
 - Explicitly triggering deeper analysis of your notes
 
-## Structure
+## Advanced: Save Reports to Custom Folder
+
+After installing the skill locally, you can ask Claude to modify the skill itself to automatically save generated sprout reports to a specified folder:
+
+1. **Tell Claude your desired output folder:**
+   ```
+   "Please modify the thought-sprout skill to save all generated sprout reports to ~/Documents/SproutReports"
+   ```
+
+2. **Claude will then:**
+   - Update the skill's prompt templates to include the save path
+   - Add automatic file creation when generating reports
+   - Commit the changes back to this repository
+
+3. **Example conversation:**
+   ```
+   You: 每次生成发芽报告后，自动保存到 ~/Documents/我的思考笔记 文件夹
+
+   Claude: 我来修改 skill，让它在生成报告后自动保存...
+   [Claude edits the skill files and commits changes]
+   ```
+
+## Project Structure
 
 ```
 thought-sprout/
 ├── SKILL.md              # Skill metadata and documentation
-├── README.md             # This file
+├── README.md             # English documentation
+├── README_CN.md          # 中文文档
 ├── references/
 │   ├── system_prompt.md          # Core persona and principles
 │   ├── opening_prompt.md         # Poetic opening generation
 │   ├── expansion_prompt.md       # Story-driven expansion
 │   ├── story_search.md           # Research strategy
-│   └── quality_checklist.md      # QC guidelines
+│   ├── quality_checklist.md      # QC guidelines
+│   └── CLAUDE.md                 # Skill memory context
 └── templates/            # (Reserved for future use)
 ```
 
